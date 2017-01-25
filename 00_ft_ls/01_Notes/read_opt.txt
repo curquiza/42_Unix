@@ -1,0 +1,82 @@
+*************************************
+**** Prise en compte des options ****
+*************************************
+
+Du moment que l'argv commence par un '-', ls considère que ce sont des options
+derriere.
+Pas de pb si plusieurs fois le meme argument ou avec les guillemets :
+ls -a -a -l <=> ls -al <=> ls "-al"
+Exception : si l'argv = "-", ls considère que c'est un nom de dossier.
+
+--------
+
+Des que ls rencontre une option inexistante : message d'erreur pour dire que ce
+n'est pas une option et le programme quitte sans rien faire de plus meme si les 
+autres argv passés étaient valides. Ensuite affichage de l'usage.
+
+>> ls -R9
+ls: illegal option -- 9
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+>> ls -89
+ls: illegal option -- 8
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+>> ls -98
+ls: illegal option -- 9
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+
+--------
+
+A partir du premier argv sans '-' devant, ls consière que ce ne sont que des
+noms de dossiers/fichiers.
+Exception : quand argv est juste un '-', ls considère que c'est deja un nom
+de dossier. A partir de cet argv, tous les suivants seront alors des noms de
+dossiers/fichiers.
+
+>> ls -
+ls: -: No such file or directory
+>> ls - a
+ls: -: No such file or directory
+ls: a: No such file or directory
+>> ls - -a
+ls: -: No such file or directory
+ls: -a: No such file or directory
+>> ls -a -
+ls: -: No such file or directory
+
+--------
+
+Comportement particulier avec l'utilisation de l'option "--"
+
+>> ls --
+Affichage de ls par défaut : pas sûr à 100% mais pour l'instant pas de contre
+exemple
+>> ls -a --
+Affichage de ls -a classique
+>> ls --1
+ls: illegal option -- -
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+>> ls ---
+ls: illegal option -- -
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+>> ls ----
+ls: illegal option -- -
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+>> ls - --
+ls: -: No such file or directory
+ls: --: No such file or directory
+>> ls -- -
+ls: -: No such file or directory
+>> ls -- --
+ls: --: No such file or directory
+>> ls -- -a
+ls: -a: No such file or directory
+>> ls -a -t -- -a
+ls: -a: No such file or directory
+
+Conclusion :
+1) "ls --" fait un affichage classique de ls
+=> les "--" toutes seules sont considérés comme l'option "par défaut"
+2) s'il y a des argv d'options avant, ils seront traités normalement
+3) "--" est considérée comme la dernière option : tous les argv derrière sont
+considérés comme des dossiers/fichiers.
+4) l'argv qui contient les "--" ne doit contenir que les "--".

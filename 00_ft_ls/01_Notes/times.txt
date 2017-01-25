@@ -1,0 +1,7 @@
+ls -R / : 2min48
+ls -R ~ : 0,3sec
+
+meme jour :
+ft_ls -Ralrt : 6min30
+ls -Ralrt : 5min55
+

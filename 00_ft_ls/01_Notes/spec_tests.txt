@@ -1,0 +1,92 @@
+************************
+**** Tests spéciaux ****
+************************
+
+Gestion des options et des arg :
+
+>> ls --
+>> ls -
+>> ls - --
+>> ls -- -
+>> ls ---
+>> ls -- fichier
+>> ls - ficher 
+>> ls - -a
+>> ls - -1
+>> ls -aa -a -r -l
+>> ls -aAa -a -r -l
+...etc
+
+------
+
+Gestion des erreurs :
+Les 4 types d'erreurs (cf fichier errors.txt)
+
+>> ls /private/var/agentix
+>> ls /private/var/agentix/ <==== /!\
+>> ls /private/var/agentix/hello
+>> ls /private/var/agentix/hello UnFichierInexistant UnDossierValide
+..etc
+
+/!\ Verifier les bonnes sorties
+
+
+------
+
+L'affichage classique
+Cf clasic_display.txt
+
+Les lignes de séparation :
+- entre les erreurs et le reste
+- entre chaque dossier
+
+Les fichier link pointant sur un dossier passé en argument :
+Il doit être affiché comme un dossier et non au début avec les autres fichiers
+"non-dossiers"
+
+Un fichier caché en argpath
+
+Deux fois le même argument
+
+..etc
+
+-----
+
+Passer un fichier caché en argument et NE PAS activer l'option -a
+
+-----
+
+Opt t :
+
+Faire ls -t avec deux fichier créés la meme seconde mais pas la meme
+nanoseconde => pas verifiable sur ce systeme car tv_nsec est toujours nul =
+pas de gestion des nanosecondes.
+
+
+-----
+
+Opt a :
+
+Créer un fichier "*test" et verifier qu'un ls -a l'affiche bien avant les
+fichiers cachés
+
+-----
+
+Opt l:
+
+/.ft_ls -al /dev/fd
+-----
+
+tests :
+
+1) bcp de fichiers :
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/share/man
+
+2) les fichier sans permission mais dont j'arrive à afficher le contenu alors
+que ls non:
+/Library/Scripts/42/munki
+
+3) comportement bizarre :
+/dev/fd
+
+4) /sgoinfre

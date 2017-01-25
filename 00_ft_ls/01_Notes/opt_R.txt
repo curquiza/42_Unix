@@ -1,0 +1,61 @@
+************************************
+**** Comportement de l'option R ****
+************************************
+
+Affiche en récursif l'ensemble des dossiers et leurs contenus.
+
+-------
+
+Comme l'affichage classique :
+- affiche les arguments "non dossiers" en premier
+- affiche les erreurs de la même manières (cf errors.txt)
+
+-------
+
+Affiche d'abord le dossier parent, son contenu, puis les dossiers fils et leurs
+contenu
+
+>> ls -R 03_tests
+outputs    scripts    test_files
+
+03_tests/outputs:
+ft_ls_output.txt ls_output.txt
+
+03_tests/scripts:
+compare_ls.sh diff_ls.sh
+
+03_tests/test_files:
+link_Makefi         link_noaccess       noaccess            truc0
+link_Makefile       link_noaccess_hello shown               truc1
+link_Makefile_      link_objs           test                vide
+
+03_tests/test_files/noaccess:
+ls: noaccess: Permission denied
+
+03_tests/test_files/shown:
+
+03_tests/test_files/vide:
+
+
+-------
+
+On remarque avec l'exemple précédent que -R n'ouvre pas les link qui pointent
+sur des dossiers
+Sauf si ce link est en argument :
+
+>> ls hello Makefile 03_tests/test_files/link_objs
+ls: hello: No such file or directory
+Makefile
+
+03_tests/test_files/link_objs:
+create_structpath.o
+del.o
+display.o
+fcttab.o
+functions.o
+main.o
+opt_bigr.o
+opt_r.o
+opt_t.o
+options.o
+start.o

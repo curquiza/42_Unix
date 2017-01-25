@@ -1,0 +1,14 @@
+************************************
+**** Comportement de l'option a ****
+************************************
+
+Tous les argpath sont affichés même si ce sont des fichiers cachés, que
+l'option a soit active ou non.
+
+Si ces argpath dossiers cachés contiennent eux même des fichiers/dossiers
+cachés et que l'option a n'est pas active, ces dossier/fichiers ne seront pas
+affichés.
+
+----------------
+
+

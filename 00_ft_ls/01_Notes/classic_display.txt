@@ -1,0 +1,94 @@
+******************************************
+**** Affichage classique des contenus ****
+******************************************
+
+1) Quand il y a plusieurs argpath (pas option), pour les arg dossier, ls affiche
+le nom du dossier suivi d'un ":\n" avant d'afficher le contenu.
+Y compris si
+- un des arguments est "." ou ".."
+- un seul argument est un dossier et tous les autres des fichiers.
+
+Quand il n'y a qu'un seul argpath, et que cet arg est un dossier, ls
+n'affichera pas le nom avant le contenu.
+
+Chaque affichage de contenu de dossier est séparé par une ligne vide.
+
+
+2) Les argpath qui ne sont pas des dossiers sont toujours affichés en premier.
+Ensuite ls affiche les dossiers et leur contenu.
+Ce sont les chemins complets rentrés en argpath qui sont affichés (pour les
+fichiers mais aussi pour les dossiers) et non pas seulement le nom.
+
+Attention : un lien symbolique qui pointe sur un dossier est considéré dans ce
+cas comme un dossier.
+Il ne sera donc pas affiché en tête avec les non-dossiers mais en seconde
+partie ainsi que le contenu du dossier sur lequel il pointe.
+
+
+
+3) Tout est affiché par défaut par ordre ascii et non dans l'ordre d'entrée
+des argpath (en respectant l'ordre fichiers d'abord et dossiers ensuite)
+
+
+4) L'odre "fichiers en premier dossier ensuite" n'est pas respecté lors de
+l'affichage du contenu des argpath. Le contenu des argpath est affiché par
+défaut dans l'ordre ascii. Le contenu des argpath est affiché par défaut dans
+l'ordre ascii.
+
+
+5) S'il y a deux fois le même argument, ls l'affiche deux fois, que ce soit un
+fichier ou un dossier.
+
+
+6) Les erreurs et l'affichage des argpath non-dossier ne sont pas séparés par
+une ligne vide
+S'il n'y a pas de non-dossier à afficher, le premier nom du dossier n'est
+pas non plus séparé des erreurs par un retour à la ligne
+
+
+7) Les argpath étant des fichiers cachés sont toujours affichés (et leur contenu
+si ce sont des dossiers), que l'option a soit active ou non. 
+Mais s'ils contiennent eux même des dossiers/fichiers cachés, ces derniers ne
+seront pas affichés dans le cas d'un affichage classique.
+
+
+---------------
+
+Résumé :
+
+>> ls "plusieurs arg dont des dossiers et des fichiers non ouvrables"
+Les erreurs dans l'ordre ascii
+Le chemin des fichiers non ouvrables dans l'ordre ascii
+/n
+Le chemin du dossier1:
+Les contenu dans l'ordre ascii du dossier1 indépendemment du types des
+contenus. Ou message d'erreur "Permission denied" avec le nom du dossier1 et
+non pas le chemin.
+/n
+Le chemin du dossier2:
+Les contenu dans l'ordre ascii du dossier2 indépendemment du types des
+contenus. Ou message d'erreur "Permission denied" avec le nom du dossier2 et
+non pas le chemin.
+/n
+...
+(les dossiers sont triés par ordre ascii)
+
+
+>> ls "un seul dossier valide en arg"
+Le contenu du dossier en ordre ascii
+
+
+>> ls "plusieurs arg dont des dossiers mais aucun fichier non ouvrable"
+Les erreurs dans l'ordre ascii avec le nom des chemins
+Le chemin du dossier1:
+Les contenu dans l'ordre ascii du dossier1 indépendemment du types des
+contenus. Ou message d'erreur "Permission denied" avec le nom du dossier1 et
+non pas le chemin.
+/n
+Le chemin du dossier2:
+Les contenu dans l'ordre ascii du dossier2 indépendemment du types des
+contenus. Ou message d'erreur "Permission denied" avec le nom du dossier2 et
+non pas le chemin.
+/n
+...
+(les dossiers sont triés par ordre ascii)

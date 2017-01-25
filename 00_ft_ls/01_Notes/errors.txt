@@ -1,0 +1,117 @@
+*********************
+**** Les erreurs ****
+*********************
+
+ls: LeNom: MessageErreur 
+
+Plusieurs types d'erreurs repérés :
+
+
+
+1) "No such file or directory" affiché au début avec le nom du chemin
+Pour les fichiers inexistants, càd les noms erronés.
+Tout est sur la sortie 2.
+
+>> ls truc
+ls: truc: No such file or directory
+
+>> ls srcs/truc
+ls: srcs/truc: No such file or directory
+
+
+
+2) "Not a directory" affiché au début avec le nom du chemin
+Pour les fichiers qui ne sont pas des dossiers mais qui ont été entrés comme
+des dossiers.
+Tout est sur la sortie 2.
+
+>> ls Makefile
+Makefile
+
+>> ls Makefileaaaaa/
+ls: Makefileaaaaa/: No such file or directory
+
+>> ls Makefile/
+ls: Makefile/: Not a directory
+
+>> ls Makefile//
+ls: Makefile//: Not a directory
+
+>> ls Makefile/toto
+ls: Makefile/toto: Not a directory
+
+>> ls ~/Documents/ft_ls/Makefile/
+ls: /Users/curquiza/Documents/ft_ls/Makefile/: Not a directory
+
+
+
+3) "Permission denied" affiché au début avec le nom du chemin
+Pour les appels de fichiers dans des dossiers dont l'accès est refusé.
+Tout est sur la sortie 2.
+
+>> ls /private/var/agentx/hello (que hello existe ou pas dans agentx)
+ls: /private/var/agentx/hello: Permission denied
+
+
+
+4) "Permission denied affiché au fur et à mesure avec le nom du fichier
+uniquement sous cette forme :
+NomChemin:
+ls: NomFichier: Permission denied
+La 1ère ligne est sur la sortie 1 et la seconde sur la sortie 2.
+Pour les dossier dont l'accès est refusé.
+
+>> ls /private/var/agentx
+ls: agentx: Permission denied
+
+>> ls /private/var/agentx /private/var/audit
+/private/var/agentx:
+ls: agentx: Permission denied
+
+/private/var/audit:
+ls: audit: Permission denied
+
+Attention : 
+>> ls /private/var/agentx /private/var/audit/
+/private/var/agentx:
+ls: agentx: Permission denied
+
+/private/var/audit/:
+ls: : Permission denied
+
+
+------------------
+
+
+Les erreurs 1, 2 et 3 sont toujours affichées en premier (uniquement sortie 2)
+dans l'ordre ascii et non par type d'erreur.
+
+>> ls AA Makefile/ yop
+ls: AA: No such file or directory
+ls: Makefile/: Not a directory
+ls: yop: No such file or directory
+
+
+L'erreur 4 se place à la place des contenus des dossiers (sur la sortie 2)
+
+>> ls Makefile yop /private/var/agentx /private/var/agentx/hello Makefile/
+ls: /private/var/agentx/hello: Permission denied
+ls: Makefile/: Not a directory
+ls: yop: No such file or directory
+Makefile
+
+/private/var/agentx:
+ls: agentx: Permission denied
+
+>> ls: /private/var/agentx/hello: Permission denied
+ls: Makefile/: Not a directory
+ls: yop: No such file or directory
+/private/var/agentx:
+ls: agentx: Permission denied
+
+-----------------
+
+Il existe d'autres types d'erreurs que les 4 données. Elles seront traitées
+via errno et seront toujours affichées au début comme les erreurs 1, 2 et 3.
+Je n'ai pas trouvé d'autres erreurs que ls affiche au fur et à mesure autre
+que l'erreur 4. 

@@ -1,0 +1,28 @@
+************************************
+**** Comportement de l'option l ****
+************************************
+
+Affiche les dossiers et fichiers sous un format partoculier contenant
+plusieurs informations de l'inode
+
+----------------
+
+Pour un lien, la taille affichée est la taille du lien et non celle du
+dossier/fichier pointé.
+
+----------------
+
+Dans /dev, la taille est remplacée par majeur/mineur et la separation avec
+le groupe en nombre de blanks n'est plus de 2 mais de 3
+
+Concernés par les majeurs/mineurs :
+- périphériques en mode caractères (c)
+- périphériques en mode blocs (b)
+
+Pour tous les autres types de fichiers, affciher la taille
+D'ailleurs, stat et lstat ne sortent pas de tailles pour les fichiers c et b
+
+----------------
+
+Avec cette option, ouvrir un lien symbolique vers un dossier donne le long
+format sur le lien et non sur le contenu du dossier
