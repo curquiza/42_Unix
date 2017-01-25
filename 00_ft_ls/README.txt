@@ -4,3 +4,4 @@ Ne gère pas :
 - ./ft_ls ""
 - Si les fonctions getpwuid et getgrgid ne fonctionnent pas
 - ./ft_ls -l /var/ (différent de ./ft_ls -l /var)
+- les colonnes comme /bin/ls mais comme /bin/ls -G
