@@ -38,29 +38,6 @@ int		ft_check_quote(char *line)
 	return (0);
 }
 
-/*int		ft_check_quote(char *line)
-{
-	int		i;
-
-	i = 0;
-	while (line[i])
-	{
-		ft_putnbr_endl(i);
-		if (line[i] == 39 || line[i] == '"')
-		{
-			if (line[i + 1] == '\0' || ft_strchr(line + i + 1, line[i]) == NULL)
-			{
-				ft_putendl_fd("minishell: quote error", 2);
-				return (-1);
-			}
-			line = ft_strchr(line + i + 1, line[i]) + 1;
-		}
-		else
-			i++;
-	}
-	return (0);
-}*/
-
 /*
 ** ft_check_line :
 ** Returns -1 if two ';' or if only blanks and ';' in the complete command line
