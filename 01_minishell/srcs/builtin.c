@@ -6,20 +6,31 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 15:37:38 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/10 15:38:20 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/21 13:35:33 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "minishell.h"
 
-void	ft_exit_if(char *bin, t_command **com)
+int		ft_exit_if(char *bin, t_command **com)
 {
+	int		rslt;
+
 	if (ft_strcmp(bin, "exit") == 0)
 	{
+		if (ft_tablen((*com)->arg) > 2)
+		{
+			ft_putendl_fd("exit: too many arguments", 2);
+			return (-1);
+		}
+		rslt = 0;
+		if ((*com)->arg[1])
+			rslt = ft_atoi((*com)->arg[1]);
 		ft_comdel(&com);
-		exit(1);
+		exit(rslt);
 	}
+	return (0);
 }
 
 int		ft_callbuiltin_if(t_command *com, char ***env)

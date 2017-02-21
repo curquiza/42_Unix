@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 12:20:38 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/17 16:09:09 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/21 13:25:53 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void			ft_change_env2(char ***env, char *varname, char *value);
 ** Builtins
 */
 
-void			ft_exit_if(char *bin, t_command **com);
+int				ft_exit_if(char *bin, t_command **com);
 int				ft_callbuiltin_if(t_command *com, char ***env);
 
 void			ft_echo(char **arg);

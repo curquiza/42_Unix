@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 12:19:59 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/21 12:50:07 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/21 13:27:04 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	ft_exec_allcom(t_command **com, char ***env)
 	i = -1;
 	while (com[++i])
 	{
-		ft_exit_if(com[i]->bin, com);
+		if (ft_exit_if(com[i]->bin, com) == -1)
+			return ;
 		ft_signal_minishell(com[i]->bin);
 		if (ft_callbuiltin_if(com[i], env) == 0)
 		{
@@ -90,6 +91,7 @@ int		main(int ac, char **av, char **environ)
 		if (!(com = ft_get_commands(line)))
 			continue ;
 		ft_exec_allcom(com, &env);
+		ft_putendl("coco");
 	}
 	return (0);
 }
