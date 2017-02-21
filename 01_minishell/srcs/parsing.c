@@ -63,6 +63,7 @@ t_command	**ft_get_commands(char *line)
 		i++;
 	}
 	comtab = ft_create_comtab(split, size);
+	comtab = ft_create_comtab(split, size);
 	ft_tabdel(&split);
 	return (comtab);
 }

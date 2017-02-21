@@ -21,11 +21,31 @@
 
 int		ft_check_quote(char *line)
 {
+	while (*line)
+	{
+		if (*line == 39 || *line == '"')
+		{
+			if (*(line + 1) == '\0' || ft_strchr(line + 1, *line) == NULL)
+			{
+				ft_putendl_fd("minishell: quote error", 2);
+				return (-1);
+			}
+			line = ft_strchr(line + 1, *line) + 1;
+		}
+		else
+			line++;
+	}
+	return (0);
+}
+
+/*int		ft_check_quote(char *line)
+{
 	int		i;
 
 	i = 0;
 	while (line[i])
 	{
+		ft_putnbr_endl(i);
 		if (line[i] == 39 || line[i] == '"')
 		{
 			if (line[i + 1] == '\0' || ft_strchr(line + i + 1, line[i]) == NULL)
@@ -39,7 +59,7 @@ int		ft_check_quote(char *line)
 			i++;
 	}
 	return (0);
-}
+}*/
 
 /*
 ** ft_check_line :
