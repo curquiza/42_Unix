@@ -1,0 +1,45 @@
+*******************
+****** ECHO *******
+*******************
+
+>> echo
+$
+
+>> echo -n
+%
+
+>> echo coco
+coco$
+
+>> echo -n coco
+coco%
+
+>> echo - -n coco
+- -n coco$ 	(csh et bash)
+-n coco$ 	(zsh)
+
+>> echo -nnn coco
+coco% 		(zsh et bash)
+-nnn coco 	(csh)
+
+>> echo -nnn -nnnn coco
+coco% 				(zsh et bash)
+-nnn -nnnn coco 	(csh)
+
+
+/!\ Attention en zsh : gestion des \n dans les arg => echo revient à la ligne
+Pour les 3, notion de caractères d'échappement, et de gestion des quotes
+
+>> echo coco\n
+cocon	(les 3)
+
+>> echo "coco\n"
+coco\n	(csh et bash)
+coco$
+$		(zsh)
+
+------------
+
+Mon echo : comme bash
+Une version sauvegardée comme zsh (en se rapprochant du comportement avec le \n
+mais sans la gestion des caractères d'échappement) => v2.

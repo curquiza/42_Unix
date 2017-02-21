@@ -1,0 +1,54 @@
+*****************
+****** CD *******
+*****************
+
+>> cd .. hello
+zsh : met des message d'erreur
+bash : ne traite que le premier arg et s'en fout du reste
+
+
+-----
+
+>> cd "sans rien derriere"
+Emmene au HOME
+
+Donc joue avec la variable HOME.
+
+Si HOME n'existe pas
+- message d'erreur pour bash
+- ne fait rien pour zsh
+
+Si HOME est un chemin qui n'existe pas :
+message d'erreur pour les deux, mais pas meme forme.
+
+Si HOME est un chemin avec permission refusée :
+message d'erreur pour les deux, mais pas meme forme.
+
+
+-------
+
+
+>> cd -
+Affiche OLDPWD
+Emmène à OLDPWD
+
+Si OLPDPWD n'existe pas, message d'erreur.
+
+
+-------
+
+comportement zsh : a chaque passage de cd, les varaiables PWD et OLDPWD sont 
+remplies, meme si elles n'existent pas (elles sont alors créées).
+SAUF si erreur sur le fichier (permission denied, not a directory...)
+
+comprtement bash : ne recrée par les variables à chaque passage.
+
+
+-------
+
+Mon cd :
+- ne gère pas les flags
+- affiche un message d'erreur si les variables n'existent pas
+- crée une variable PWD et OLDPWD a chaque passage s'il n'y a pas eu d'erreur
+- si la variable HOME ou OLDPWD est vide, je ne dis pas que la variable n'est
+pas initialisée par que le répertoire "" n'existe pas.

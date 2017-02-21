@@ -1,0 +1,69 @@
+*********************
+****** SETENV *******
+*********************
+
+setenv n'est que sur le shell csh et tcsh.
+Equivalent zsh et bash : export.
+
+-----------
+
+Comportement csh et tcsh :
+Ajoute une variable environnement si elle n'existe pas avec la valeur passée en
+paramètre.
+Si la variable existe déjà, la valeur est modifiée.
+
+>> setenv
+Affiche toutes les variables environnement
+
+>> setenv coco 1 hello
+setenv: Too many arguments.
+
+>> setenv coco 1
+coco=1
+
+>> setenv coco
+coco=
+
+>> setenv 1
+setenv: Variable name must begin with a letter.
+
+>> setenv "coco" 1
+setenv: Variable name must begin with a letter.
+
+>> setenv coco=1
+setenv: Variable name must contain alphanumeric characters.
+
+>> setenv c1co=1
+c1co=1
+
+>> setenv coco 1=2
+coco=1=2
+
+-----------
+
+Mon setenv :
+
+Comme csh si :
+- trop d'arguments
+- zéro argument
+- le classic "setenv coco 1"
+- la variable ne commence pas par une lettre
+- le nom de la variable ne contient pas seulement des caractères alphanumérics.
+
+
+Différences :
+
+- Possibilité de rentrer la variable comme pour export :
+>> setenv coco=1
+Et dans ce cas là l'éventuel 2nd argument est ignoré.
+Les checks sur le nom de la variables (avant le '=') sont les memes que dans le
+cas classic.
+
+- la gestion des ". Elles ne seront plus présentes au moment de les envoyer à 
+setenv donc pas possible de recréer exactement l'erreur suivante :
+>> setenv "coco" 1
+(Mais je fais quand même un check pour voir si la variable ne contient que des
+caratères alphanumérics.)
+Du coup :
+>> setenv coco=
+Ajoute "coco="

@@ -1,0 +1,31 @@
+*********************
+****** QUOTES *******
+*********************
+
+Quote = ' et "
+Je ne tiens pas compte ici des `
+
+zsh : n'affiche pas d'erreur quand il manque les quotes, mais demande des
+rajouts avec un retour à la ligne suivi du prompt "dquote>" ou "quote>"
+
+>> "ls''"
+zsh: command not found: ls''
+
+mais 
+
+>> ""ls''""
+Fait la commande ls
+
+-----
+
+Ma gestion des quotes : comme zsh mais je ne demande pas à l'utilisateur de
+compléter "dquote>" ou "quote>". À la place j'affiche un message d'erreur.
+
+Une erreur de quote affiche mon message d'erreur et n'exécute aucune commande de
+la ligne (dans le cas d'une ligne avec des ;)
+
+>> "ls'" 
+Pas d'erreur et ne trouve pas la commande ls'
+
+>> "coco"""'hehe'
+Erreur qui ne trouve pas la commande cocohehe

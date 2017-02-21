@@ -1,0 +1,17 @@
+
+- multi commandes (;) => zsh
+- quotes => zsh
+
+
+BUILTINS :
+
+- exit : zsh (pas de message "exit" au moment de quiter comme dans bash)
+- echo : bash
+Une version comme zsh (en se rapprochant du comportement avec le \n mais sans la
+gestion des caractères d'échappement => v2.
+- setenv : csh + marche aussi si l'argument est de la forme "VAR=VALUE"
+cf setenv.txt
+- unsetenv : csh
+- cd :
+comme bash = on s'en fout des arguments derrière le premier
+mais avec quelques dapatation perso => cf cd.txt
