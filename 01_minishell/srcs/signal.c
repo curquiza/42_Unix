@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 16:29:43 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/17 16:09:10 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/21 12:50:52 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_ctrlc_noprompt(int sig)
 
 void	ft_signal_ctrlc(char **env)
 {
+	g_user = NULL;
 	g_user = ft_get_envvar("USER", env) + 5;
 	signal(SIGINT, ft_ctrlc_prompt);
 }

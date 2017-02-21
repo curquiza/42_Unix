@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 12:19:59 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/17 16:07:37 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/21 12:50:07 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,12 @@ int		main(int ac, char **av, char **environ)
 	(void)av;
 	com = NULL;
 	line = NULL;
-	signal(SIGINT, SIG_DFL);
 	ft_initenv(&env, environ);
 	while (42)
 	{
 		ft_putprompt(env);
 		ft_strdel(&line);
 		ft_comdel(&com);
-		signal(SIGINT, &ft_ctrlc_donothing);
 		ft_signal_ctrlc(env);
 		if (get_next_line(1, &line) == -1)
 			return (1);

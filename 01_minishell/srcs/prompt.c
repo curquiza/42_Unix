@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 14:52:40 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/10 14:53:43 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/21 12:42:43 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_putprompt(char **env)
 {
 	char	*pwd;
 
+	pwd = NULL;
 	pwd = getcwd(NULL, 0);
 	if (pwd)
 	{
@@ -36,6 +37,7 @@ void	ft_putprompt_signal(char *user)
 {
 	char	*pwd;
 
+	pwd = NULL;
 	pwd = getcwd(NULL, 0);
 	if (pwd)
 	{
