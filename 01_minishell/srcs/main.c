@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 12:19:59 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/21 13:27:04 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/21 13:37:23 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ int		main(int ac, char **av, char **environ)
 		if (!(com = ft_get_commands(line)))
 			continue ;
 		ft_exec_allcom(com, &env);
-		ft_putendl("coco");
 	}
 	return (0);
 }
