@@ -84,7 +84,10 @@ SRC = $(addprefix $(DIR_SRC)/, \
 	  ft_convbase.c \
 	  ft_tablen.c \
 	  ft_sorttab_ascii.c \
-	  ft_ullintlen.c)
+	  ft_ullintlen.c \
+	  ft_putstr_col.c \
+	  ft_putendl_col.c \
+	  ft_putnbr_col.c )
 OBJ = $(SRC:$(DIR_SRC)/%.c=$(DIR_OBJ)/%.o)
 
 all : $(NAME)
@@ -92,7 +95,7 @@ all : $(NAME)
 $(NAME) : $(OBJ) 
 	@ar rc $@ $^
 	@ranlib $@
-	@echo "Make $@ : \033[1;33mOK\033[0m"
+	@#echo "Make $@ : \033[1;33mOK\033[0m"
 
 $(DIR_OBJ)/%.o: $(DIR_SRC)/%.c
 	@$(CC) -I $(DIR_INCL) -c $< -o $@

@@ -6,12 +6,17 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 20:05:55 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/23 20:54:35 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/01/25 15:40:42 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_ls.h"
+
+/*
+** Activation de l'opt T :
+** Si l'opt l est activée, affiche la date complète.
+*/
 
 void			ft_date_bigt(t_path *tab, t_max_optl *max)
 {

@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_col.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/29 17:12:41 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/30 16:50:48 by curquiza         ###   ########.fr       */
+/*   Created: 2017/01/25 18:53:26 by curquiza          #+#    #+#             */
+/*   Updated: 2017/01/25 19:04:02 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
 #include "libft.h"
 
-int		main(int ac, char **av)
+void	ft_putstr_col(char *str, char *color, char *colreset)
 {
-	char	opt[128];
-	t_path	**argpath;
-	void	(*f[10])(t_path **, char *);
-
-	ft_start(ac, av, &argpath, opt);
-	ft_init_fcttab(f);
-	ft_run(argpath, opt, f);
-	ft_display(argpath, opt, f);
-	return (0);
+	ft_putstr(color);
+	ft_putstr(str);
+	ft_putstr(colreset);
 }

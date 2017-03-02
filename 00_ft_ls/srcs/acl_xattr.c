@@ -6,12 +6,17 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 10:58:11 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/23 14:47:04 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/02/20 12:01:59 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_ls.h"
+
+/*
+** ft_acl_xatt :
+** Gestion des ACL et les attributs étendus
+*/
 
 void			ft_acl_xatt(t_path *tab)
 {

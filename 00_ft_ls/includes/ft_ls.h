@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 16:56:52 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/24 12:51:34 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/01/26 10:48:37 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,14 @@
 ** Couleurs
 */
 
-# define DEF "\033[0m"
-# define BLACK "\x1b[30m"
-# define RED "\x1b[31m"
-# define RED_BOLD "\x1b[1;31m"
-# define GREEN "\x1b[32m"
-# define GREEN_BOLD "\x1b[1;32m"
-# define YELLOW "\x1b[33m"
-# define YELLOW_BOLD "\x1b[1;33m"
-# define BLUE "\x1b[34m"
-# define BLUE_BOLD "\x1b[1;34m"
-# define PINK "\x1b[35m"
-# define PINK_BOLD "\x1b[1;35m"
-# define CYAN "\x1b[36m"
-# define CYAN_BOLD "\x1b[1;36m"
-# define WHITE "\x1b[37m"
+# define DIR_COL B_BLUE
+# define LNK_COL B_GREEN
+# define BLK_COL BLUE
+# define CHR_COL CYAN
+# define SOCK_COL PINK
+# define FIFO_COL YELLOW
+# define EXEC_COL RED
+# define DIRPATH_COL B_YELLOW
 
 /*
 ** Structure s_path
@@ -215,8 +208,6 @@ void				ft_acl_xatt(t_path *tab);
 ** colors.c
 */
 
-void				ft_putstr_color(char *display, char *color);
-void				ft_putendl_color(char *display, char *color);
 void				ft_print_color(char *str, t_path *tab);
 int					ft_find_position(t_path *tab, char *name, int len);
 

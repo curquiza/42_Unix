@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 12:15:31 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/21 11:27:25 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/01/25 19:01:30 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,26 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+/*
+** Colors
+*/
+
+# define DEF "\033[0m"
+# define BLACK "\x1b[30m"
+# define RED "\x1b[31m"
+# define B_RED "\x1b[1;31m"
+# define GREEN "\x1b[32m"
+# define B_GREEN "\x1b[1;32m"
+# define YELLOW "\x1b[33m"
+# define B_YELLOW "\x1b[1;33m"
+# define BLUE "\x1b[34m"
+# define B_BLUE "\x1b[1;34m"
+# define PINK "\x1b[35m"
+# define B_PINK "\x1b[1;35m"
+# define CYAN "\x1b[36m"
+# define B_CYAN "\x1b[1;36m"
+# define WHITE "\x1b[37m"
 
 /*
 ** GNL project
@@ -125,5 +145,8 @@ char				*ft_convbase(char *value, int old_base, int new_base);
 int					ft_tablen(char **tab);
 void				ft_sorttab_ascii(char **tab);
 int					ft_ullintlen(unsigned long long int n);
+void				ft_putstr_col(char *str, char *color, char *colreset);
+void				ft_putendl_col(char *str, char *color, char *colreset);
+void				ft_putnbr_col(int n, char *color, char *colreset);
 
 #endif

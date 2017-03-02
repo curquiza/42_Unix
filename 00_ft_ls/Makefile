@@ -6,7 +6,7 @@
 #    By: curquiza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/16 17:08:05 by curquiza          #+#    #+#              #
-#    Updated: 2017/01/23 21:25:30 by curquiza         ###   ########.fr        #
+#    Updated: 2017/02/20 12:33:53 by curquiza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,27 +55,28 @@ all : $(NAME)
 
 $(LIB) :
 	@make -C $(LIB_DIR)
-	@echo "\033[1;31m--------------------------\033[0m"
+	@printf  "%-45s\033[1;33m%s\033[0m\n" "Make $@" "OK"
+	@echo "\033[1;31m-- OBJECTS ---------------------\033[0m"
 
 $(NAME) : $(LIB) $(OBJ)
 	@$(CC) $(OBJ) -o $@ $(LIB_FLAG)
-	@echo "\033[1;31m--------------------------\033[0m"
-	@echo "Make $@ : \033[1;32mOK\033[0m"
+	@echo "\033[1;31m-- EXEC ------------------------\033[0m"
+	@printf  "%-45s\033[1;32m%s\033[0m\n" "Make $@" "OK"
 
 $(DIR_OBJ)/%.o: $(DIR_SRC)/%.c
 	@$(CC) -o $@ -c $< $(INCL_FLAG)
-	@echo "Make $@ : \033[1;32mOK\033[0m"
+	@printf  "%-45s\033[1;32m%s\033[0m\n" "Make $@" "OK"
 
 clean :
 	@make clean -C $(LIB_DIR)
-	@echo "Make $@_libft : \033[1;33mOK\033[0m"
+	@printf  "%-45s\033[1;33m%s\033[0m\n" "Make $@_libft" "OK"
 	@rm -f $(OBJ)
-	@echo "Make $@ : \033[1;32mOK\033[0m"
+	@printf  "%-45s\033[1;32m%s\033[0m\n" "Make $@" "OK"
 
 fclean : clean
 	@make fclean -C $(LIB_DIR)
-	@echo "Make $@_libft : \033[1;33mOK\033[0m"
+	@printf  "%-45s\033[1;33m%s\033[0m\n" "Make $@_libft" "OK"
 	@rm -f $(NAME)
-	@echo "Make $@ : \033[1;32mOK\033[0m"
+	@printf  "%-45s\033[1;32m%s\033[0m\n" "Make $@" "OK"
 
 re : fclean all

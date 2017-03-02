@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:56:54 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/24 11:48:15 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/01/25 19:21:46 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ft_print_dirpath(t_path *tab, int len, int toop, char *opt)
 	{
 		if (opt['G'] == 1)
 		{
-			ft_putstr_color(tab->name, YELLOW_BOLD);
-			ft_putendl_color(":", YELLOW_BOLD);
+			ft_putstr_col(tab->name, DIRPATH_COL, DEF);
+			ft_putendl_col(":", DIRPATH_COL, DEF);
 		}
 		else
 		{

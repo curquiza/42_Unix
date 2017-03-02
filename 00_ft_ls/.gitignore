@@ -1,0 +1,8 @@
+objs/*.o
+ft_ls
+a.out
+libft/objs/*.o
+libft/libft.a
+*/*.swp
+*.swp
+03_tests/outputs/*
