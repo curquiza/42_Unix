@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 12:49:48 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/20 11:05:28 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/05/02 13:54:23 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_cd_checkerrors(char *path)
 
 	if (!(info = (struct stat *)malloc(sizeof(*info))))
 		return (1);
-	if (lstat(path, info) == -1)
+	if (stat(path, info) == -1)
 	{
 		ft_cd_puterr(path, "No such file or directory");
 		free(info);
