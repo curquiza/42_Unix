@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 17:16:13 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/23 20:46:15 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/09/20 18:49:06 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void			ft_uid_grp(t_path *tab, t_max_optl *max)
 
 	pwd = getpwuid(tab->lstat.st_uid);
 	i = 13 + max->link;
+	//ft_strcpy(tab->display + i, pwd->pw_name);
 	j = 0;
 	while (j < (int)ft_strlen(pwd->pw_name))
 	{
@@ -82,6 +83,7 @@ void			ft_uid_grp(t_path *tab, t_max_optl *max)
 	}
 	grp = getgrgid(tab->lstat.st_gid);
 	i = 15 + max->link + max->uid;
+	//ft_strcpy(tab->display + i, grp->gr_name);
 	j = 0;
 	while (j < (int)ft_strlen(grp->gr_name))
 	{
