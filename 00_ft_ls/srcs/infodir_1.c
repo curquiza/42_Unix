@@ -67,30 +67,30 @@ void			ft_access(t_path *tab)
 void			ft_uid_grp(t_path *tab, t_max_optl *max)
 {
 	int				i;
-	int				j;
+	//int				j;
 	struct passwd	*pwd;
 	struct group	*grp;
 
 	pwd = getpwuid(tab->lstat.st_uid);
 	i = 13 + max->link;
-	//ft_strcpy(tab->display + i, pwd->pw_name);
-	j = 0;
-	while (j < (int)ft_strlen(pwd->pw_name))
-	{
-		tab->display[i] = pwd->pw_name[j];
-		i++;
-		j++;
-	}
+	ft_memmove(tab->display + i, pwd->pw_name, ft_strlen(pwd->pw_name));
+	//j = 0;
+	//while (j < (int)ft_strlen(pwd->pw_name))
+	//{
+	//	tab->display[i] = pwd->pw_name[j];
+	//	i++;
+	//	j++;
+	//}
 	grp = getgrgid(tab->lstat.st_gid);
 	i = 15 + max->link + max->uid;
-	//ft_strcpy(tab->display + i, grp->gr_name);
-	j = 0;
-	while (j < (int)ft_strlen(grp->gr_name))
-	{
-		tab->display[i] = grp->gr_name[j];
-		i++;
-		j++;
-	}
+	ft_memmove(tab->display + i, grp->gr_name, ft_strlen(grp->gr_name));
+	//j = 0;
+	//while (j < (int)ft_strlen(grp->gr_name))
+	//{
+	//	tab->display[i] = grp->gr_name[j];
+	//	i++;
+	//	j++;
+	//}
 }
 
 void			ft_size_majmin(t_path *tab, t_max_optl *max)

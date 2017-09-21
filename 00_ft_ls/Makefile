@@ -12,7 +12,8 @@
 
 NAME = ft_ls
 
-CC = gcc -Wall -Wextra -Werror
+#CC = gcc -Wall -Wextra -Werror
+CC = gcc -Wall -Wextra -Werror -g -fsanitize=address
 
 INCL_FLAG = -I includes -I $(LIB_DIR)/includes
 
