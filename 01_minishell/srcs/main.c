@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 12:19:59 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/21 13:37:23 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/05/05 18:10:12 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		main(int ac, char **av, char **environ)
 		ft_strdel(&line);
 		ft_comdel(&com);
 		ft_signal_ctrlc(env);
-		if (get_next_line(1, &line) == -1)
+		if (get_next_line(0, &line) != 1)
 			return (1);
 		if (!(com = ft_get_commands(line)))
 			continue ;

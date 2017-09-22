@@ -6,13 +6,14 @@
 #    By: curquiza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/16 17:08:05 by curquiza          #+#    #+#              #
-#    Updated: 2017/02/20 12:33:53 by curquiza         ###   ########.fr        #
+#    Updated: 2017/09/21 14:01:12 by curquiza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_ls
 
 CC = gcc -Wall -Wextra -Werror
+#CC = gcc -Wall -Wextra -Werror -g -fsanitize=address
 
 INCL_FLAG = -I includes -I $(LIB_DIR)/includes
 

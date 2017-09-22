@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 12:24:53 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/23 20:57:56 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/09/20 18:48:44 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,14 @@ void			ft_check_max(t_path *tab, t_max_optl *max)
 	grp = getgrgid(tab->lstat.st_gid);
 	if (ft_ullintlen(tab->lstat.st_nlink) > max->link)
 		max->link = ft_ullintlen(tab->lstat.st_nlink);
-	if ((int)ft_strlen(pwd->pw_name) > max->uid)
+	if (pwd && (int)ft_strlen(pwd->pw_name) > max->uid)
 		max->uid = ft_strlen(pwd->pw_name);
-	if ((int)ft_strlen(grp->gr_name) > max->gp)
+	else if (!pwd && ft_intlen(tab->lstat.st_uid) > max->uid)
+		max->uid = ft_intlen(tab->lstat.st_uid);
+	if (grp && (int)ft_strlen(grp->gr_name) > max->gp)
 		max->gp = ft_strlen(grp->gr_name);
+	else if (!grp && ft_intlen(tab->lstat.st_gid) > max->gp)
+		max->gp = ft_intlen(tab->lstat.st_gid);
 	if (ft_ullintlen(tab->lstat.st_size) > max->size_majmin)
 		max->size_majmin = ft_ullintlen(tab->lstat.st_size);
 	if (S_ISBLK(tab->lstat.st_mode) || S_ISCHR(tab->lstat.st_mode))

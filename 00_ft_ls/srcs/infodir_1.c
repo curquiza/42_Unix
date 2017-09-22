@@ -6,7 +6,7 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 17:16:13 by curquiza          #+#    #+#             */
-/*   Updated: 2017/01/23 20:46:15 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/09/21 13:36:23 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,28 +67,30 @@ void			ft_access(t_path *tab)
 void			ft_uid_grp(t_path *tab, t_max_optl *max)
 {
 	int				i;
-	int				j;
 	struct passwd	*pwd;
 	struct group	*grp;
+	char			*nbr;
 
 	pwd = getpwuid(tab->lstat.st_uid);
 	i = 13 + max->link;
-	j = 0;
-	while (j < (int)ft_strlen(pwd->pw_name))
+	if (!pwd)
 	{
-		tab->display[i] = pwd->pw_name[j];
-		i++;
-		j++;
+		nbr = ft_itoa(tab->lstat.st_uid);
+		ft_memmove(tab->display + i, nbr, ft_strlen(nbr));
+		ft_strdel(&nbr);
 	}
+	else
+		ft_memmove(tab->display + i, pwd->pw_name, ft_strlen(pwd->pw_name));
 	grp = getgrgid(tab->lstat.st_gid);
 	i = 15 + max->link + max->uid;
-	j = 0;
-	while (j < (int)ft_strlen(grp->gr_name))
+	if (!grp)
 	{
-		tab->display[i] = grp->gr_name[j];
-		i++;
-		j++;
+		nbr = ft_itoa(tab->lstat.st_gid);
+		ft_memmove(tab->display + i, nbr, ft_strlen(nbr));
+		ft_strdel(&nbr);
 	}
+	else
+		ft_memmove(tab->display + i, grp->gr_name, ft_strlen(grp->gr_name));
 }
 
 void			ft_size_majmin(t_path *tab, t_max_optl *max)

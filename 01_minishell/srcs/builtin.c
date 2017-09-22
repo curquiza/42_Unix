@@ -6,12 +6,13 @@
 /*   By: curquiza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 15:37:38 by curquiza          #+#    #+#             */
-/*   Updated: 2017/02/21 13:35:33 by curquiza         ###   ########.fr       */
+/*   Updated: 2017/05/06 22:51:25 by curquiza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "minishell.h"
+#define D "'"
 
 int		ft_exit_if(char *bin, t_command **com)
 {
@@ -30,6 +31,7 @@ int		ft_exit_if(char *bin, t_command **com)
 		ft_comdel(&com);
 		exit(rslt);
 	}
+	// LOL
 	return (0);
 }
 
