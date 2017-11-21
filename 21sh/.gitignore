@@ -1,0 +1,7 @@
+objs/*
+srcs/**/.*
+21sh
+libft/libft.a
+libft/objs/*.o
+includes/.*
+

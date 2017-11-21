@@ -1,0 +1,17 @@
+'\coco\'"coco\"'"
+"co\co\$\$\$"test\"
+coco\>|test
+lsls"dldl\NEWLINE"
+
+vider l'env et ajouter une variable
+
+ Makefile coco 2> TEST 2>&1 titi 2> PAPA srcs
+ et variantes avec les sorties
+
+ titi=12 2> coco ls bash
+
+ls titi 3>test- coco 2>&mimi 0<&1-
+
+u=13 | echo $u ; echo "u = $u"
+
+coco || ls coco || ls -G || ls srcs && coco
